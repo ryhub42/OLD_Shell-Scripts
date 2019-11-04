@@ -6,5 +6,6 @@ echo A = $a
 b='RY'
 echo B= $b
 
-Date=2019-11-04
+Date=$(date +%F)
 echo Hello, Good Morning. Today is $Date
+
