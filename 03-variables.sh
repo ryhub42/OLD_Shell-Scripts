@@ -9,3 +9,4 @@ echo B= $b
 Date=$(date +%F)
 echo Hello, Good Morning. Today is $Date
 
+echo My_name=$enteryourname
