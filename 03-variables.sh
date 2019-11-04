@@ -1,4 +1,7 @@
 #!/bin/bash
 
 a=10
-echo variable = $a
+echo A = $a
+
+b='RY'
+echo B= $b
