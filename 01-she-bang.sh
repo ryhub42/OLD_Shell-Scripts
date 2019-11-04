@@ -1,3 +1,3 @@
-#!/python
+#!/bin/bash
 
 print ("Hello")
