@@ -1,3 +1,3 @@
 #!/bin/bash
 
-print ("Hello")
+echo Hello
