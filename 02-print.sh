@@ -6,5 +6,5 @@ echo -e Hi\nHello
 echo -e "Hi\nHello"
 echo -e "I\tam\tusing\ttabs"
 echo -e "\e[31mRed Color"
-echo -e "\e[33mYellow Color"
+echo -e "\e[33mYellow Color\e[0m"
 echo -e "\e[44mBlue Background Color\e[0m"
