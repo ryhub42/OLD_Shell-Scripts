@@ -11,11 +11,21 @@ STOP_FUNC() {
     echo Stopping $SERVICE_NAME service
 }
 
+USAGE() {
+    echo -e "\n\e[33mUsage: $0 action(Start|stop|restart)"
+    exit 1
+}
+
+if [$# -ne 1]; then
+ echo -e"\n\e[33m Argument Missing!!\e[0m"
+ USAGE
+fi
+
 case $ACTION in 
  start)
   START_FUNC
   ;; 
- stop)''
+ stop)
   STOP_FUNC
   ;;
  restart)
