@@ -1,8 +1,8 @@
 #!/bin/bash
 #read -p 'Enter your name: ' user_name
 #read -p 'How old are you?: ' user_age
-read 'Enter your name:' user_age=6
-read 'How old are you?:' user_name=R
+read -p 'Enter your name:' user_name
+read -p 'How old are you?:' user_age
 #echo "following command will be executed=> useradd -g $group_name $user_name"
 
 if [ $user_age -eq 6 ]; then
