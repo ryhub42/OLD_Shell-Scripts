@@ -16,8 +16,8 @@ USAGE() {
     exit 1
 }
 
-if [$# -ne 1]; then
- echo -e"\n\e[33m Argument Missing!!\e[0m"
+if [ $# -ne 1 ]; then
+ echo -e "\n\e[33m Argument Missing!!\e[0m"
  USAGE
 fi
 
