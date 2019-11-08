@@ -22,6 +22,7 @@ echo "A = $A, a = $a"
 
 SAMPLE3(){
     echo Hai
+    return
     echo Bye
 }
 
