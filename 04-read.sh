@@ -12,5 +12,5 @@ echo -e "Hello \e[35m$user_name\e[0m], you must be in \e[31mFirst grade!\e[0m. H
 elif [$user_age gt 6]; then
 echo -e "what??? No way...."
 else
-echo -e "[\e32m"Have a lovely day $user_name\e[0m"
+echo -e "[\e32mHave a lovely day $user_name\e[0m"
 fi
