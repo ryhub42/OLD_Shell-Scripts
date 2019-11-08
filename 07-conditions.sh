@@ -1,13 +1,13 @@
 #!/bin/bash
 
-ACTION =$1
-SERVICE_NAME =DEMO
+ACTION=$1
+SERVICE_NAME=DEMO
 
- START_FUNC(){
+ START_FUNC() {
      echo Starting $SERVICE_NAME service
  }
 
-STOP_FUNC(){
+STOP_FUNC() {
     echo Stopping $SERVICE_NAME service
 }
 
