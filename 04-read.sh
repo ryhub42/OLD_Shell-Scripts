@@ -1,6 +1,16 @@
 #!/bin/bash
 
-read -p 'Enter the username to add: ' user_name
-read -p 'Enter the group to add: ' group_name
+read -p 'Enter your name: ' user_name
+read -p 'How old are you?: ' user_age
 
-echo "following command will be executed=> useradd -g $group_name $user_name"
+#echo "following command will be executed=> useradd -g $group_name $user_name"
+
+if [$user_age lt 6]; then
+echo -e "You silly! you are lying!!"
+elif [$user_age eq 6]; then
+echo -e "Hello \e[35m$user_name\e[0m], you must be in \e[31mFirst grade!\e[0m. How do you like it??"
+elif [$user_age gt 6]; then
+echo -e "what??? No way...."
+else
+echo -e "[\e32m"Have a lovely day $user_name\e[0m"
+fi
