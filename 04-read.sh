@@ -1,7 +1,7 @@
 #!/bin/bash
 
-read -p 'Enter your name: ' user_name
-read -p 'How old are you?: ' user_age
+echo 'Enter your name: ' $user_name
+echo 'How old are you?: ' $user_age
 
 #echo "following command will be executed=> useradd -g $group_name $user_name"
 
