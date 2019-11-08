@@ -6,4 +6,9 @@ SAMPLE() {
     echo You are inside the function
 }
 
-SAMPLE 
+SAMPLE1 (){
+    echo First Argument = $1
+}
+
+SAMPLE
+SAMPLE1 abc
