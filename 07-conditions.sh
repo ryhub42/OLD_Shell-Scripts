@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ACTION =$1
+SERVICE_NAME =DEMO
 
  START_FUNC(){
      echo Starting $SERVICE_NAME service
