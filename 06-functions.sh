@@ -13,12 +13,12 @@ SAMPLE1 (){
 SAMPLE2(){
     A=100
     local a=200
-}
+
 
 SAMPLE
 SAMPLE1 abc
 SAMPLE2
-ECHO "A = $A, a = $a"
+echo "A = $A, a = $a"
 
 SAMPLE3(){
     echo exist status of SAMPLE3 = $?
