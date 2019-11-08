@@ -9,7 +9,7 @@ if [ $user_age -eq 6 ]; then
 elif [ $user_age -lt 6 ]; then
  echo -e "Hello You must be kidding"
 elif [ $user_age -gt 6 ]; then
- #echo -e "what??? No way...."
+ echo -e "what??? No way...."
 else
- echo -e "\e[32mHave a lovely day $user_name\e[0m"
+ echo -e "\e[32mHave a lovely day \e[0m"
 fi
