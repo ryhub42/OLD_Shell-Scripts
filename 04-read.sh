@@ -9,6 +9,8 @@ if [ $user_age -eq 6 ]; then
     echo -e "Hello \e[35m$user_name\e[0m, you must be in \e[31mFirst grade!\e[0m. How do you like it??"
 elif [ $user_age -lt 6 ]; then
  echo -e "You must be kidding!"
+elif [ $user_age -gt 8 ]; then
+ echo -e "Hahahaha... you are funny"
 else
  echo -e "what??? No way...."
  sleep 2
