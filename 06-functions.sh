@@ -21,5 +21,9 @@ SAMPLE2
 echo "A = $A, a = $a"
 
 SAMPLE3(){
-    echo exist status of SAMPLE3 = $?
+    echo Hai
+    echo Bye
 }
+
+SAMPLE3
+echo exist status of SAMPLE3 = $?
