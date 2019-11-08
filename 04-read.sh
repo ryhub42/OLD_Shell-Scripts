@@ -1,11 +1,11 @@
 #!/bin/bash
 
-read 'Enter your name: ' $user_name
-echo 'How old are you?: ' $user_age
+read -p 'Enter your name: ' user_name
+read -p 'How old are you?: ' user_age
 
 #echo "following command will be executed=> useradd -g $group_name $user_name"
 
-if ["$user_age" lt 6]; then
+if [-z "$user_age" lt 6]; then
 echo -e "You silly! you are lying!!"
 elif [$user_age eq 6]; then
 echo -e "Hello \e[35m$user_name\e[0m], you must be in \e[31mFirst grade!\e[0m. How do you like it??"
