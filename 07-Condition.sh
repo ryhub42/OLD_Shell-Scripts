@@ -11,6 +11,11 @@ STOP_FUNC() {
  echo "Stopping $SERVICE_NAME Service"
 }
 
+USAGE() {
+ echo -e "\n\e[33mUsage: $0 action(start|stop|restart)"
+ exit 1
+}
+
 case $ACTION in 
  start)
   START_FUNC
