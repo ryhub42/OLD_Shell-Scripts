@@ -9,8 +9,7 @@ STOP_ORDER="customers-service visits-service vets-service api-gateway discovery-
 START_F() {
  for service in $START_ORDER ; do 
   echo "Starting $service Service"
-  su - $USER_NAME -c "nohup java -jar /home/$USER_NAME/spring-petclinic-$service.jar &>/home/$USER_NAME/$service.log"
-  &"
+  su - $USER_NAME -c "nohup java -jar /home/$USER_NAME/spring-petclinic-$service.jar &>/home/$USER_NAME/$service.log &"
   sleep 1
  done
 }
