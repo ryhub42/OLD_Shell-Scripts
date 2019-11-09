@@ -27,3 +27,14 @@ case $ACTION in
  exit 1
  ;;
  esac
+
+ if [ "$ACTION" = "start" ]; then
+  START_FUNC
+elif [ "$ACTION" = "stop" ]; then
+  STOP_FUNC
+elif [ "$ACTION" = "restart" ]; then
+  STOP_FUNC
+  START_FUNC
+else
+  USAGE
+fi
