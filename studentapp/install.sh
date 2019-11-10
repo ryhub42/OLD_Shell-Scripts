@@ -11,7 +11,7 @@ rm -f $LOG
 
 echo "WEB SERVER SETUP"
 echo -n "Install Web Server"
-yum install nginx &>$git LOG
+yum install nginx &>$LOG
 if [ $? -eq 0 ]; then
  echo " - SUCCESS"
 else
