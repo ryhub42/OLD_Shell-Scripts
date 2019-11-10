@@ -12,6 +12,7 @@ rm -f $LOG
 G="\e[32m"
 R="\e[31m"
 N="\e[0m"
+FUSERNAME=student
 
 ## Functions
 Head() {
@@ -64,3 +65,11 @@ systemctl enable nginx &>>$LOG
 systemctl start nginx &>>$LOG
 STAT_CHECK $?
 
+HEAD "APPLICATION SERVER SETUP"
+Print "Adding Functional User"
+useradd $FUSERNAME &>>$LOG
+STAT_CHECK $?
+
+Print "Install Java"
+yum install java -y &>>LOG
+STAT_cHECK $?
