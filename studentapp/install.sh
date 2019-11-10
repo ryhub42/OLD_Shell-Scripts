@@ -24,9 +24,9 @@ Print(){
 
 STAT_CHECK(){
  if [ $1 -eq 0 ]; then
-  echo " - ${G}SUCCESS${N}"
+  echo -e " - ${G}SUCCESS${N}"
  else
-  echo " - ${R}FAILURE${N}"
+  echo -e " - ${R}FAILURE${N}"
   exit 1
  fi
 }
