@@ -14,7 +14,7 @@ START_F() {
  PORT_NO=$(echo $service | awk -F : '{print $2}')
   echo -n "Starting $service Service"
   su - $USER_NAME -c "nohup java -jar /home/$USER_NAME/spring-petclinic-$service.jar &>/home/$USER_NAME/$service.log &"
-  
+}  
   local i=0
   while [ $i -lt $START_TIMEOUT ]; do
 
