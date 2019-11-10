@@ -12,19 +12,23 @@ rm -f $LOG
 
 ## Functions
 Head() {
- echo -e "\n\t\t\t\e[1;4;35m $1 \e[0m\n"
+ echo -e "\n\t\t\t\e[4;1;35m $1 \e[0m\n"
 }
 
 Print(){
- echo -e "  $1"
-
+ echo -e "  $1 "
 }
+
+STAT_CHECK(){
+ if [ $1 -eq 0 ]; then
+  echo " - SUCCESS"
+ else
+  echo " - FAILURE"
+  exit 1
+ fi
+}
+
 Head "WEB SERVER SETUP"
 Print "Install Web Server"
 yum install nginx -y &>>$LOG
-if [ $? -eq 0 ]; then
- echo " - SUCCESS"
-else
- echo " - FAILURE"
- exit 1
-fi
+STAT_CHECK $?
