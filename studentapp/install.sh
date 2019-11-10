@@ -19,7 +19,7 @@ Head() {
 }
 
 Print(){
- echo -e -n "  $1 "
+ echo -e -n "  $1\t\t "
 }
 
 STAT_CHECK(){
