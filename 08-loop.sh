@@ -8,7 +8,7 @@ done
 
 i=20
 
-while [ $i gt 0 ]; do
+while [ $i -gt 0 ]; do
 date
 sleep 2
 i=$(($i-2))
