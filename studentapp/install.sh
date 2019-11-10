@@ -18,7 +18,7 @@ Head() {
 
 Head "WEB SERVER SETUP"
 echo -n "Install Web Server"
-yum install nginx &>$LOG
+yum install nginx -y &>>$LOG
 if [ $? -eq 0 ]; then
  echo " - SUCCESS"
 else
