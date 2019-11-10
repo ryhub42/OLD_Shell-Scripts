@@ -19,7 +19,7 @@ Head() {
 }
 
 Print(){
- echo -e -n "  $1\t\t "
+ echo -e -n "  $1\t\t\t "
 }
 
 STAT_CHECK(){
@@ -63,3 +63,4 @@ Print "Starting Nginx Service"
 systemctl enable nginx &>>$LOG
 systemctl start nginx &>>$LOG
 STAT_CHECK $?
+
