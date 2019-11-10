@@ -28,6 +28,7 @@ START_F() {
       fi
       sleep 15
     fi
+  done
  done
 }
 
