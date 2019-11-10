@@ -17,6 +17,7 @@ START_F() {
   
   local i=0
   while [ $i -lt $START_TIMEOUT ]; do
+
    netstat -lntp | grep $PORT_NO &>/dev/null
     if [ $? -eq 0 ]; then
       echo " -STARTED"
@@ -30,7 +31,7 @@ START_F() {
       sleep 15
     fi
  done
-}
+
 
 
 ## Main Program
