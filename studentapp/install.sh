@@ -10,8 +10,8 @@ LOG=/tmp/student.log
 rm -f $LOG
 
 echo "WEB SERVER SETUP"
-echo "Install Web Server"
-yum install nginx &>$LOG
+echo -n "Install Web Server"
+yum install nginx &>$git LOG
 if [ $? -eq 0 ]; then
  echo " - SUCCESS"
 else
