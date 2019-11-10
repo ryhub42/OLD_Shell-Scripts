@@ -7,6 +7,11 @@ STOP_ORDER="customers-service visits-service vets-service api-gateway discovery-
 
 START_TIMEOUT=300
 
+## Color Codes
+G="\e[32m"
+R="\e[31m"
+N="\e[0m"
+
 ##Start Function
 START_F() {
  for service in $START_ORDER ; do 
@@ -18,12 +23,12 @@ START_F() {
    while [ $i -lt $START_TIMEOUT ]; do
    netstat -lntp | grep $PORT_NO &>/dev/null
     if [ $? -eq 0 ]; then
-      echo " -STARTED"
+      echo -e"${G} -STARTED${N}"
       break
      else
       i=$(($i+15))
       if [ $i -gt $START_TIMEOUT ]; then
-        echo " - FAILED"
+        echo -e"${R} - FAILED${N}"
         exit 1
       fi
       sleep 15
