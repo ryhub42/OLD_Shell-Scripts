@@ -38,8 +38,8 @@ if [ $USER_ID -ne 0 ]; then
  exit 1
 fi
 
-Head "WEB SERVER SETUP\t"
-Print "Install Web Server"
+Head "WEB SERVER SETUP"
+Print "Install Web Server\t"
 yum install nginx -y &>>$LOG
 STAT_CHECK $?
 
