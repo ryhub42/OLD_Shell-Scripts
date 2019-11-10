@@ -65,11 +65,11 @@ systemctl enable nginx &>>$LOG
 systemctl start nginx &>>$LOG
 STAT_CHECK $?
 
-HEAD "APPLICATION SERVER SETUP"
+Head "APPLICATION SERVER SETUP"
 Print "Adding Functional User"
 useradd $FUSERNAME &>>$LOG
 STAT_CHECK $?
 
 Print "Install Java"
-yum install java -y &>>LOG
+yum install java -y &>>$LOG
 STAT_cHECK $?
