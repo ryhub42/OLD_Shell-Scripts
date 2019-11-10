@@ -103,3 +103,19 @@ cd $TOMCAT_HOME
 sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="student" password="student@1" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/studentapp"/>' conf/context.xml
 STAT_CHECK $?
 
+chown $FUSERNAME:$FUSERNAME /home/$FUSERNAME -R
+
+Print "Download Tomcat init script\t"
+curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/tomcat-init -o
+STAT_CHECK $?
+
+Print "Load Tomcat Script to Systemd"
+chmod +x /etc/init.d/tomcat
+systemctl daemon-reload &>>$LOG
+STAT_CHECK $?
+
+Print "Start Tomcat Service\t"
+systemctl enable tomcat &>>$LOG
+systemctl restart tomcat &>>$LOG
+STAT_CHECK $?
+
