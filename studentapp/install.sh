@@ -79,4 +79,4 @@ fi
 
 Print "Install Java\t\t"
 yum install java -y &>>$LOG
-STAT_cHECK $?
+STAT_CHECK $?
