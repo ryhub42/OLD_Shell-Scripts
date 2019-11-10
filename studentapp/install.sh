@@ -91,10 +91,6 @@ STAT_CHECK $?
 
 Print "Download Student Application"
 cd $TOMCAT_HOME
-
-
-## sudo su - student 
-student> cd apache-tomcat-8.5.47
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war -o webapps/student.war
 STAT_CHECK $?
 
