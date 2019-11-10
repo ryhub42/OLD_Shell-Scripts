@@ -20,8 +20,9 @@ Head() {
 }
 
 Print(){
+ echo -e "\n\n#............... $1 .............#" >>$LOG
  echo -e -n "  $1\t\t "
-}
+ }
 
 STAT_CHECK(){
  if [ $1 -eq 0 ]; then
