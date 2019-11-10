@@ -10,14 +10,12 @@ START_TIMEOUT=300
 ##Start Function
 START_F() {
  for service in $START_ORDER ; do 
- SERVICE=$(echo $service | awk -F : '{print $1}')
- PORT_NO=$(echo $service | awk -F : '{print $2}')
+  SERVICE=$(echo $service | awk -F : '{print $1}')
+  PORT_NO=$(echo $service | awk -F : '{print $2}')
   echo -n "Starting $service Service"
   su - $USER_NAME -c "nohup java -jar /home/$USER_NAME/spring-petclinic-$service.jar &>/home/$USER_NAME/$service.log &"
-}  
   local i=0
-  while [ $i -lt $START_TIMEOUT ]; do
-
+   while [ $i -lt $START_TIMEOUT ]; do
    netstat -lntp | grep $PORT_NO &>/dev/null
     if [ $? -eq 0 ]; then
       echo " -STARTED"
@@ -31,7 +29,7 @@ START_F() {
       sleep 15
     fi
  done
-
+}
 
 
 ## Main Program
