@@ -16,7 +16,7 @@ START_F() {
   su - $USER_NAME -c "nohup java -jar /home/$USER_NAME/spring-petclinic-$service.jar &>/home/$USER_NAME/$service.log &"
   
   local i=0
-  while [ $i -lt $START_TIMEOUT ]; then
+  while [ $i -lt $START_TIMEOUT ]; do
    netstat -lntp | grep $PORT_NO &>/dev/null
     if [ $? -eq 0 ]; then
       echo " -STARTED"
