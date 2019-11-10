@@ -12,7 +12,7 @@ rm -f $LOG
 
 ## Functions
 Head() {
- echo -e "\n\t\t\t\e[1;35m $1 \e[0m\n"
+ echo -e "\n\t\t\t\e[1;4;35m $1 \e[0m\n"
 
 }
 
