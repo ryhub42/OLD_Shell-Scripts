@@ -19,7 +19,7 @@ Head() {
 }
 
 Print(){
- echo -e -n "  $1\t\t\t "
+ echo -e -n "  $1\t\t "
 }
 
 STAT_CHECK(){
@@ -38,18 +38,18 @@ if [ $USER_ID -ne 0 ]; then
  exit 1
 fi
 
-Head "WEB SERVER SETUP"
+Head "WEB SERVER SETUP\t"
 Print "Install Web Server"
 yum install nginx -y &>>$LOG
 STAT_CHECK $?
 
-Print "Clean old index files"
+Print "Clean old index files\t"
 rm -rf /usr/share/nginx/html/* &>>LOG
 STAT_CHECK $?
 
 cd /usr/share/nginx/html/
 
-Print "Download Index files"
+Print "Download Index files\t"
 curl -s https://studentapi-cit.s3-us-west-2.amazonaws.com/studentapp-frontend.tar.gz | tar -xz 
 STAT_CHECK $?
 
