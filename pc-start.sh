@@ -17,18 +17,18 @@ START_F() {
  for service in $START_ORDER ; do 
   SERVICE=$(echo $service | awk -F : '{print $1}')
   PORT_NO=$(echo $service | awk -F : '{print $2}')
-  echo -n "Starting $service Service"
-  su - $USER_NAME -c "nohup java -jar /home/$USER_NAME/spring-petclinic-$service.jar &>/home/$USER_NAME/$service.log &"
+  echo -n "Starting $SERVICE Service"
+  su - $USER_NAME -c "nohup java -jar /home/$USER_NAME/spring-petclinic-$SERVICE.jar &>/home/$USER_NAME/$SERVICE.log &"
   local i=0
    while [ $i -lt $START_TIMEOUT ]; do
    netstat -lntp | grep $PORT_NO &>/dev/null
     if [ $? -eq 0 ]; then
-      echo -e"${G} -STARTED${N}"
+      echo -e "${G} - STARTED${N}"
       break
      else
       i=$(($i+15))
       if [ $i -gt $START_TIMEOUT ]; then
-        echo -e"${R} - FAILED${N}"
+        echo -e "${R} - FAILED${N}"
         exit 1
       fi
       sleep 15
