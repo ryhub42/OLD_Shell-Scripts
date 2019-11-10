@@ -6,9 +6,9 @@ for var in $VALUES ; do
  sleep 1
 done
 
-i=60
+i=20
 
-while[$i gt 0]; do
+while[ $i gt 0 ]; do
 date
 sleep 2
 i=$(($i-2))
