@@ -9,6 +9,9 @@
 ## Global Variables
 LOG=/tmp/student.log
 rm -f $LOG
+G="\e[32m"
+R="\e[31m"
+N="\e[0m"
 
 ## Functions
 Head() {
@@ -16,14 +19,14 @@ Head() {
 }
 
 Print(){
- echo -e "  $1 "
+ echo -e -n "  $1 "
 }
 
 STAT_CHECK(){
  if [ $1 -eq 0 ]; then
-  echo " - SUCCESS"
+  echo " - ${G}SUCCESS${N}"
  else
-  echo " - FAILURE"
+  echo " - ${R}FAILURE${N}"
   exit 1
  fi
 }
