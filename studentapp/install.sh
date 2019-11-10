@@ -13,6 +13,9 @@ G="\e[32m"
 R="\e[31m"
 N="\e[0m"
 FUSERNAME=student
+TOMCAT_VERSION=8.5.47
+TOMCAT_URL=http://apachemirror.wuchna.com/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-8.5.47.tar.gz | tar -xz
+TOMCAT_HOME=/home/$FUSERNAME/apache-tomcat-${TOMCAT_VERSION}
 
 ## Functions
 Head() {
@@ -80,3 +83,28 @@ fi
 Print "Install Java\t\t"
 yum install java -y &>>$LOG
 STAT_CHECK $?
+
+Print "Download Tomcat\t"
+cd /home/$FUSERNAME
+curl $TOMCAT_URL | tar -xz
+STAT_CHECK $?
+
+Print "Download Student Application"
+cd $TOMCAT_HOME
+
+
+## sudo su - student 
+student> cd apache-tomcat-8.5.47
+curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war -o webapps/student.war
+STAT_CHECK $?
+
+Print "Download JDBC Driver"
+cd $TOMCAT_HOME
+curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar -o lib/mysql-connector.jar
+STAT_CHECK $?
+Print "Update JDBC Parameters"
+cd $TOMCAT_HOME
+sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="student" password="student@1" driverClassName="com.mysql.jdbc.Driver"
+url="jdbc:mysql://localhost:3306/studentapp"/>' conf/context.xml
+STAT_CHECK $?
+
