@@ -105,7 +105,7 @@ STAT_CHECK $?
 
 chown $FUSERNAME:$FUSERNAME /home/$FUSERNAME -R
 
-Print "Download Tomcat init script\t"
+Print "Download Tomcat init script"
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/tomcat-init -o /etc/init.d/tomcat
 STAT_CHECK $?
 
