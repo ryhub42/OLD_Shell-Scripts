@@ -100,7 +100,7 @@ curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar -o
 STAT_CHECK $?
 Print "Update JDBC Parameters"
 cd $TOMCAT_HOME
-sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="admin" password="admin321" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://database-1.ckrfacxeidf1.us-east-1.rds.amazonaws.com:3306/studentapp"/>' conf/context.xml
+sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="student" password="student@1" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/studentapp"/>' conf/context.xml
 STAT_CHECK $?
 
 chown $FUSERNAME:$FUSERNAME /home/$FUSERNAME -R
@@ -119,17 +119,3 @@ systemctl enable tomcat &>>$LOG
 systemctl restart tomcat &>>$LOG
 STAT_CHECK $?
 
-Head "DATABASE SERVER SETUP"
-Print "Install MariaDB Server"
-yum install mariadb-server -y &>>$LOG
-STAT_CHECK $?
-
-Print "Start MariaDB Service\t"
-systemctl enable mariadb &>>$LOG
-systemctl start mariadb &>>$LOG
-STAT_CHECK $?
-
-Print "Load Schema\t\t"
-curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/studentapp-ui-proj1.sql -o /tmp/schema.sql
-mysql </tmp/schema.sql
-STAT_CHECK $?
