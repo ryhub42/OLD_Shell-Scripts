@@ -14,7 +14,7 @@ R="\e[31m"
 N="\e[0m"
 FUSERNAME=student
 TOMCAT_VERSION=8.5.47
-TOMCAT_URL=http://apachemirror.wuchna.com/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-8.5.47.tar.gz
+TOMCAT_URL=http://apachemirror.wuchna.com/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz
 TOMCAT_HOME=/home/$FUSERNAME/apache-tomcat-${TOMCAT_VERSION}
 
 ## Functions
@@ -100,6 +100,7 @@ curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar -o
 STAT_CHECK $?
 Print "Update JDBC Parameters"
 cd $TOMCAT_HOME
+sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="student" password="student@1" driverClassName="com.mysql.jdbc.Driver" url="database-2.ckrfacxeidf1.us-east-1.rds.amazonaws.com/studentapp"/>' conf/context.xml 
 STAT_CHECK $?
 
 chown $FUSERNAME:$FUSERNAME /home/$FUSERNAME -R
