@@ -98,6 +98,7 @@ Print "Download JDBC Driver\t"
 cd $TOMCAT_HOME
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar -o lib/mysql-connector.jar
 STAT_CHECK $?
+
 Print "Update JDBC Parameters"
 cd $TOMCAT_HOME
 sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="student" password="student@1" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/studentapp"/>' conf/context.xml 

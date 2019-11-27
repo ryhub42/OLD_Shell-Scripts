@@ -98,13 +98,13 @@ Print "Download JDBC Driver\t"
 cd $TOMCAT_HOME
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar -o lib/mysql-connector.jar
 STAT_CHECK $?
+
 Print "Update JDBC Parameters"
 cd $TOMCAT_HOME
-sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="DBUSER" password="DBPASS" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://DBHOST:3306/studentapp"/>' conf/context.xml
+sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="DBUSER" password="DBPASS" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://DBHOST:3306/DBNAME"/>' conf/context.xml
 STAT_CHECK $?
 
-sed -i -e "s/DBUSER/$1/" -e "s/DBPASS/$2/"
--e "s/DBHOST/$3/" -e "s/DBNAME/studentapp" conf/context.xml
+sed -i -e "s/DBUSER/$1/" -e "s/DBPASS/$2/" -e "s/DBHOST/$3/" -e "s/DBNAME/$4" conf/context.xml
 
 chown $FUSERNAME:$FUSERNAME /home/$FUSERNAME -R
 
