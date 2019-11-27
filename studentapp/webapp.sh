@@ -7,7 +7,7 @@
 ##Description: This script installs and configures all web, app and db components 
 
 ## Global Variables
-LOG=/tmp/student.log
+LOG=/tmp/$FUSERNAME.log
 rm -f $LOG
 G="\e[32m"
 R="\e[31m"
@@ -50,7 +50,7 @@ yum install nginx -y &>>$LOG
 STAT_CHECK $?
 
 Print "Clean old index files\t"
-rm -rf /usr/share/nginx/html/* &>>LOG
+rm -rf /usr/share/nginx/html/* &>>$LOG
 STAT_CHECK $?
 
 cd /usr/share/nginx/html/
